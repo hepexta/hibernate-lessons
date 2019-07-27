@@ -10,6 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "time_test")
 public class TimeTest {
@@ -17,9 +18,13 @@ public class TimeTest {
     @Id
     @GeneratedValue
     private Long timeTestId;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date datetime;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
+    @Temporal(TemporalType.DATE)
     private Date date;
+    @Temporal(TemporalType.TIME)
     private Date time;
     private java.sql.Timestamp sqlDatetime;
     private java.sql.Timestamp sqlTimestamp;

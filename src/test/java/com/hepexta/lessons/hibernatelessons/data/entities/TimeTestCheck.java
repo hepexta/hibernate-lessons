@@ -29,5 +29,10 @@ public class TimeTestCheck {
 
         session.save(timeTest);
         session.getTransaction().commit();
+
+        session.beginTransaction();
+
+        TimeTest ts = (TimeTest) session.get(TimeTest.class, timeTest.getTimeTestId());
+        System.out.println(ts);
     }
 }
