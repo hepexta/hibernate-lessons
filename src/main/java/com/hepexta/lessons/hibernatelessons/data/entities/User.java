@@ -20,6 +20,7 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(nullable = false)
     private Date birthDate;
     private String emailAddress;
     private Date lastUpdateDate;

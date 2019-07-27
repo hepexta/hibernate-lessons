@@ -1,6 +1,7 @@
 package com.hepexta.lessons.hibernatelessons.data.entities;
 
 import com.hepexta.lessons.hibernatelessons.data.HibernateUtil;
+import org.hibernate.PropertyValueException;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Assert;
@@ -93,7 +94,7 @@ public class UserCheck {
         String lastUpdatedBy = lastUpdateDate.toString();
         dbUser.setCreatedBy(lastUpdatedBy); // updatable == false
         dbUser.setCreatedDate(lastUpdateDate); // updatable == false
-
+        session.update(dbUser);
         session.getTransaction().commit();
 
         session.beginTransaction();
@@ -101,5 +102,15 @@ public class UserCheck {
 
         Assert.assertNotEquals(lastUpdateDate, dbUser.getCreatedDate());
         Assert.assertNotEquals(lastUpdatedBy, dbUser.getCreatedBy());
+    }
+
+    @Test(expected = PropertyValueException.class)
+    public void test_update_nullable() {
+
+        session.beginTransaction();
+        User dbUser = (User) session.get(User.class, 1L);
+        dbUser.setBirthDate(null);
+        session.update(dbUser);
+        session.getTransaction().commit();
     }
 }
