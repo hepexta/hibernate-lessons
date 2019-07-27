@@ -19,7 +19,7 @@ import static com.hepexta.lessons.hibernatelessons.utils.DateUtils.parseDate;
 @SpringBootTest
 public class UserCheck {
 
-    Session session;
+    private Session session;
 
     @Before
     public void setUp() {

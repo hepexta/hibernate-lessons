@@ -31,7 +31,10 @@
         &lt;!&ndash; Drop and re-create the database schema on startup &ndash;&gt;
         <property name="hbm2ddl.auto">update</property>-->
 
+        <property name="hibernate.id.new_generator_mappings">false</property>
+
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.User"/>
+        <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.FinancesKeys"/>
 
     </session-factory>
 

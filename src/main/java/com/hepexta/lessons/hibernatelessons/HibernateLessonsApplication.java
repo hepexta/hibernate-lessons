@@ -40,12 +40,10 @@ public class HibernateLessonsApplication {
         User dbUser = (User) session.get(User.class, user.getId());
         dbUser.setFirstName("John");
         dbUser.setCreatedBy("John"); // updatable == false
-
+        session.update(dbUser);
         session.getTransaction().commit();
 
         session.close();
     }
-
-
 
 }

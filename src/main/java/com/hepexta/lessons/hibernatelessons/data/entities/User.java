@@ -15,8 +15,8 @@ import java.util.Date;
 @Access(value = AccessType.FIELD)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "USER_ID_SEQ")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "user_table_generator")
+    @TableGenerator(name = "user_table_generator", table = "finances_keys", pkColumnName = "TABLE_NAME", pkColumnValue = "user", valueColumnName = "VALUE")
     @Column(name = "userId")
     private Long id;
     private String firstName;
