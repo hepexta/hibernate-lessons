@@ -30,5 +30,7 @@ public class User {
     private Date createdDate;
     @Column(updatable = false)
     private String createdBy;
+    @Transient
+    private boolean valid;
 
 }
