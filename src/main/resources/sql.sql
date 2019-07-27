@@ -10,3 +10,6 @@ CREATE TABLE `public`.`user` (
   `createdBy` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE INDEX `idUser_UNIQUE` (`userId` ASC) VISIBLE);
+
+ALTER TABLE `public`.`user`
+  CHANGE COLUMN `userId` `userId` INT(11) NOT NULL AUTO_INCREMENT ;
