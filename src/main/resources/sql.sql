@@ -27,3 +27,20 @@ ALTER TABLE `public`.`finances_keys`
   ADD UNIQUE INDEX `TABLE_NAME_UNIQUE` (`TABLE_NAME` ASC) VISIBLE,
   DROP INDEX `VALUE_UNIQUE` ;
 ;
+
+CREATE TABLE `public`.`time_test` (
+  `timeTestId` INT NOT NULL,
+  `dateTime` DATETIME NULL,
+  `timeStamp` TIMESTAMP NULL,
+  `date` DATE NULL,
+  `time` TIME NULL,
+  `sqlDateTime` DATETIME NULL,
+  `sqlDate` DATE NULL,
+  `sqlTime` TIME NULL,
+  PRIMARY KEY (`timeTestId`),
+  UNIQUE INDEX `timeTestId_UNIQUE` (`timeTestId` ASC) VISIBLE);
+
+ALTER TABLE `public`.`time_test`
+  CHANGE COLUMN `timeTestId` `timeTestId` INT(11) NOT NULL AUTO_INCREMENT
+ALTER TABLE `public`.`time_test`
+  ADD COLUMN `sqlTimeStamp` TIMESTAMP NULL AFTER `sqlDateTime`;
