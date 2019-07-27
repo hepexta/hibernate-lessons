@@ -1,9 +1,12 @@
 package com.hepexta.lessons.hibernatelessons.data.entities;
 
+import com.hepexta.lessons.hibernatelessons.utils.DateUtils;
 import lombok.*;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Getter
 @Setter
@@ -32,5 +35,7 @@ public class User {
     private String createdBy;
     @Transient
     private boolean valid;
+    @Formula(value = "lower(datediff(curdate(), birthDate)/365)")
+    private int age;
 
 }
