@@ -29,8 +29,7 @@ public class Account {
 	@Column(name = "CURRENT_BALANCE")
 	private BigDecimal currentBalance;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ACCOUNT_ID", nullable = false)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
 	List<Transaction> transactions = new ArrayList<>();
 
 	@Column(name = "OPEN_DATE")

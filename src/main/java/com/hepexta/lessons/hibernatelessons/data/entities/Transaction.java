@@ -27,7 +27,12 @@ public class Transaction {
 	@Column(name = "AMOUNT")
 	private BigDecimal amount;
 
-	@Column(name = "INITIAL_BALANCE")
+    @ManyToOne()
+    /** Since we now have an inverse relationship put the join column on the owning side of the relationship. */
+    @JoinColumn(name="ACCOUNT_ID", nullable = false)
+    private Account account;
+
+    @Column(name = "INITIAL_BALANCE")
 	private BigDecimal initialBalance;
 
 	@Column(name = "CLOSING_BALANCE")
