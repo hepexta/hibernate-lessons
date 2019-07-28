@@ -1,6 +1,7 @@
 package com.hepexta.lessons.hibernatelessons.data.entities;
 
 import com.hepexta.lessons.hibernatelessons.data.HibernateUtil;
+import org.assertj.core.util.Lists;
 import org.hibernate.PropertyValueException;
 import org.hibernate.Session;
 import org.junit.After;
@@ -45,15 +46,7 @@ public class UserCheck {
                 .lastUpdateDate(new Date())
                 .lastUpdatedBy("Sergei")
                 .emailAddress("mail@mail.com")
-                .address(
-                        Address.builder()
-                                .addressLine1("addressLine1")
-                                .addressLine2("addressLine2")
-                                .zipCode("32654")
-                                .city("Yaroslavl")
-                                .state("YO")
-                        .build()
-                )
+                .address(Lists.list(populateAddress(),populateAddress()))
                 .build();
 
         session.save(user);
@@ -71,6 +64,16 @@ public class UserCheck {
         Assert.assertEquals(user.getEmailAddress(), dbUser.getEmailAddress());
         Assert.assertEquals(user.getLastUpdateDate(), dbUser.getLastUpdateDate());
         Assert.assertEquals(user.getLastUpdatedBy(), dbUser.getLastUpdatedBy());
+    }
+
+    private Address populateAddress() {
+        return Address.builder()
+                .addressLine1("addressLine1"+Math.random())
+                .addressLine2("addressLine2"+Math.random())
+                .zipCode("32654")
+                .city("Yaroslavl")
+                .state("YO")
+        .build();
     }
 
     @Test
