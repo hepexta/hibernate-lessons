@@ -11,7 +11,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/public</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">Vjkjnjr_1</property>
+        <property name="connection.password"></property>
 <!--
         &lt;!&ndash; JDBC connection pool (use the built-in) &ndash;&gt;
         <property name="connection.pool_size">1</property>-->
@@ -38,6 +38,8 @@
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.TimeTest"/>
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Bank"/>
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Credential"/>
+        <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Account"/>
+        <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Transaction"/>
 
     </session-factory>
 

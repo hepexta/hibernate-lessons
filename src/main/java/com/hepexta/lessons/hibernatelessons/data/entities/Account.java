@@ -1,9 +1,16 @@
 package com.hepexta.lessons.hibernatelessons.data.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ACCOUNT")
 public class Account {
@@ -21,6 +28,10 @@ public class Account {
 
 	@Column(name = "CURRENT_BALANCE")
 	private BigDecimal currentBalance;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "ACCOUNT_ID", nullable = false)
+	List<Transaction> transactions = new ArrayList<>();
 
 	@Column(name = "OPEN_DATE")
 	private Date openDate;
