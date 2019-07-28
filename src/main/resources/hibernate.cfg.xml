@@ -37,6 +37,7 @@
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.FinancesKeys"/>
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.TimeTest"/>
         <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Bank"/>
+        <mapping class="com.hepexta.lessons.hibernatelessons.data.entities.Credential"/>
 
     </session-factory>
 
