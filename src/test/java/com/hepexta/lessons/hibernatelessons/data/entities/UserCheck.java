@@ -45,6 +45,15 @@ public class UserCheck {
                 .lastUpdateDate(new Date())
                 .lastUpdatedBy("Sergei")
                 .emailAddress("mail@mail.com")
+                .address(
+                        Address.builder()
+                                .addressLine1("addressLine1")
+                                .addressLine2("addressLine2")
+                                .zipCode("32654")
+                                .city("Yaroslavl")
+                                .state("YO")
+                        .build()
+                )
                 .build();
 
         session.save(user);

@@ -1,8 +1,6 @@
 package com.hepexta.lessons.hibernatelessons.data.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,6 +8,8 @@ import javax.persistence.Embeddable;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Embeddable
 public class Address {
 
