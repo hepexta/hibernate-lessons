@@ -5,7 +5,9 @@ import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -36,11 +38,14 @@ public class User {
     private boolean valid;
     @Formula(value = "lower(datediff(curdate(), birthDate)/365)")
     private int age;
-
+    @OneToOne(mappedBy = "user")
+    private Credential credential;
     @ElementCollection
     @CollectionTable(name="USER_ADDRESS", joinColumns = @JoinColumn(name="USER_ID"))
     @AttributeOverrides({@AttributeOverride(name="addressLine1", column=@Column(name="USER_ADDRESS_LINE_1")),
             @AttributeOverride(name="addressLine2", column=@Column(name="USER_ADDRESS_LINE_2"))})
     private List<Address> address;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    private Set<Account> accounts = new HashSet<>();
 
 }

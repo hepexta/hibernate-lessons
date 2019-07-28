@@ -7,7 +7,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,6 +33,11 @@ public class Account {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
 	List<Transaction> transactions = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "USER_ACCOUNT", joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
+    inverseJoinColumns = @JoinColumn(name = "USER_ID"))
+    Set<User> users = new HashSet<>();
 
 	@Column(name = "OPEN_DATE")
 	private Date openDate;
